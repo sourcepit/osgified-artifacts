@@ -1,0 +1,168 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>org.sourcepit</groupId>
+		<artifactId>srcpit-parent</artifactId>
+		<version>11</version>
+	</parent>
+
+	<artifactId>osgified-artifacts</artifactId>
+	<version>1-SNAPSHOT</version>
+	<packaging>pom</packaging>
+
+	<!-- repo to resolve parent pom from -->
+	<repositories>
+		<repository>
+			<id>srcpit-public</id>
+			<url>http://nexus.sourcepit.org/content/groups/public/</url>
+		</repository>
+	</repositories>
+
+	<build>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<artifactId>maven-install-plugin</artifactId>
+					<executions>
+						<execution>
+							<id>default-install</id>
+							<phase>none</phase>
+						</execution>
+					</executions>
+				</plugin>
+				<plugin>
+					<artifactId>maven-deploy-plugin</artifactId>
+					<executions>
+						<execution>
+							<id>default-deploy</id>
+							<phase>none</phase>
+						</execution>
+					</executions>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+
+		<plugins>
+			<plugin>
+				<groupId>org.sourcepit.tools</groupId>
+				<artifactId>osgify-maven-plugin</artifactId>
+				<version>0.18.0</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>osgify-artifacts</goal>
+							<goal>install-osgified-artifacts</goal>
+							<goal>deploy-osgified-artifacts</goal>
+						</goals>
+						<configuration>
+							<groupId>srcpit.osgified</groupId>
+							<repository>
+								<id>srcpit-releases</id>
+								<url>${srcpit.nexus.url}/content/repositories/releases</url>
+							</repository>
+							<options>
+								<symbolicNameMappings>
+									org.aspectj:aspectjrt:jar=org.aspectj.runtime,
+									org.apache.maven:maven-aether-provider:jar=org.apache.maven.aether.provider,
+									org.apache.maven:maven-artifact:jar=org.apache.maven.artifact,
+									org.apache.maven:maven-compat:jar=org.apache.maven.compat,
+									org.apache.maven:maven-core:jar=org.apache.maven.core,
+									org.apache.maven:maven-embedder:jar=org.apache.maven.embedder,
+									org.apache.maven:maven-model:jar=org.apache.maven.model,
+									org.apache.maven:maven-model-builder:jar=org.apache.maven.model.builder,
+									org.apache.maven:maven-plugin-api:jar=org.apache.maven.plugin.api,
+									org.apache.maven:maven-repository-metadata:jar=org.apache.maven.repository.metadata,
+									org.apache.maven:maven-settings:jar=org.apache.maven.settings,
+									org.apache.maven:maven-settings-builder:jar=org.apache.maven.settings.builder
+								</symbolicNameMappings>
+								<internalPackages>
+									**.internal.**,
+									**.internal
+								</internalPackages>
+								<excludedExecutionEnvironments>
+									JavaSE/compact1-1.8,
+									JavaSE/compact2-1.8,
+									JavaSE/compact3-1.8
+								</excludedExecutionEnvironments>
+							</options>
+							<artifacts>
+								<artifact>
+									<groupId>org.antlr</groupId>
+									<artifactId>antlr-runtime</artifactId>
+									<version>3.5.1</version>
+								</artifact>
+								<artifact>
+									<groupId>org.aspectj</groupId>
+									<artifactId>aspectjrt</artifactId>
+									<version>1.7.4</version>
+								</artifact>
+								<artifact>
+									<groupId>org.codehaus.plexus</groupId>
+									<artifactId>plexus-interpolation</artifactId>
+									<version>1.19</version>
+								</artifact>
+								<!-- <artifact> -->
+								<!-- <groupId>org.apache.maven</groupId> -->
+								<!-- <artifactId>maven-aether-provider</artifactId> -->
+								<!-- <version>3.1.1</version> -->
+								<!-- </artifact> -->
+								<artifact>
+									<groupId>org.apache.maven</groupId>
+									<artifactId>maven-artifact</artifactId>
+									<version>3.1.1</version>
+								</artifact>
+								<!-- <artifact> -->
+								<!-- <groupId>org.apache.maven</groupId> -->
+								<!-- <artifactId>maven-compat</artifactId> -->
+								<!-- <version>3.1.1</version> -->
+								<!-- </artifact> -->
+								<!-- <artifact> -->
+								<!-- <groupId>org.apache.maven</groupId> -->
+								<!-- <artifactId>maven-core</artifactId> -->
+								<!-- <version>3.1.1</version> -->
+								<!-- </artifact> -->
+								<!-- <artifact> -->
+								<!-- <groupId>org.apache.maven</groupId> -->
+								<!-- <artifactId>maven-embedder</artifactId> -->
+								<!-- <version>3.1.1</version> -->
+								<!-- </artifact> -->
+								<artifact>
+									<groupId>org.apache.maven</groupId>
+									<artifactId>maven-model</artifactId>
+									<version>3.1.1</version>
+								</artifact>
+								<!-- <artifact> -->
+								<!-- <groupId>org.apache.maven</groupId> -->
+								<!-- <artifactId>maven-model-builder</artifactId> -->
+								<!-- <version>3.1.1</version> -->
+								<!-- </artifact> -->
+								<!-- <artifact> -->
+								<!-- <groupId>org.apache.maven</groupId> -->
+								<!-- <artifactId>maven-plugin-api</artifactId> -->
+								<!-- <version>3.1.1</version> -->
+								<!-- </artifact> -->
+								<!-- <artifact> -->
+								<!-- <groupId>org.apache.maven</groupId> -->
+								<!-- <artifactId>maven-repository-metadata</artifactId> -->
+								<!-- <version>3.1.1</version> -->
+								<!-- </artifact> -->
+								<!-- <artifact> -->
+								<!-- <groupId>org.apache.maven</groupId> -->
+								<!-- <artifactId>maven-settings</artifactId> -->
+								<!-- <version>3.1.1</version> -->
+								<!-- </artifact> -->
+								<!-- <artifact> -->
+								<!-- <groupId>org.apache.maven</groupId> -->
+								<!-- <artifactId>maven-settings-builder</artifactId> -->
+								<!-- <version>3.1.1</version> -->
+								<!-- </artifact> -->
+							</artifacts>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>
