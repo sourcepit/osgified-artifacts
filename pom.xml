@@ -48,7 +48,7 @@
 			<plugin>
 				<groupId>org.sourcepit.tools</groupId>
 				<artifactId>osgify-maven-plugin</artifactId>
-				<version>0.19.0-preview-11</version>
+				<version>0.19.0-SNAPSHOT</version>
 				<executions>
 					<execution>
 						<goals>
@@ -82,7 +82,8 @@
 									**.internal
 								</internalPackages>
 								<recommendedImportPolicies>
-									org.apache.maven.**=equivalent
+									org.apache.maven.** = equivalent,
+									javax.inject=any
 								</recommendedImportPolicies>
 								<excludedExecutionEnvironments>
 									JavaSE/compact1-1.8,
