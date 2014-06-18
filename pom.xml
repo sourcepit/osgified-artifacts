@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.sourcepit</groupId>
 		<artifactId>srcpit-parent</artifactId>
-		<version>11</version>
+		<version>14-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>osgified-artifacts</artifactId>
@@ -46,9 +46,9 @@
 
 		<plugins>
 			<plugin>
-				<groupId>org.sourcepit.tools</groupId>
-				<artifactId>osgify-maven-plugin</artifactId>
-				<version>0.19.0-SNAPSHOT</version>
+				<groupId>org.sourcepit.osgifier</groupId>
+				<artifactId>osgifier-maven-plugin</artifactId>
+				<version>0.19.0-preview-16</version>
 				<executions>
 					<execution>
 						<goals>
@@ -77,21 +77,13 @@
 									org.apache.maven:maven-settings:jar=org.apache.maven.settings,
 									org.apache.maven:maven-settings-builder:jar=org.apache.maven.settings.builder
 								</symbolicNameMappings>
-								<internalPackages>
-									**.internal.**,
-									**.internal
-								</internalPackages>
-								<recommendedImportPolicies>
-									org.apache.maven.** = equivalent,
-									javax.inject=any
-								</recommendedImportPolicies>
-								<excludedExecutionEnvironments>
-									JavaSE/compact1-1.8,
-									JavaSE/compact2-1.8,
-									JavaSE/compact3-1.8
-								</excludedExecutionEnvironments>
 							</options>
 							<artifacts>
+								<artifact>
+									<groupId>javax.inject</groupId>
+									<artifactId>javax.inject</artifactId>
+									<version>1</version>
+								</artifact>
 								<artifact>
 									<groupId>org.antlr</groupId>
 									<artifactId>antlr-runtime</artifactId>
@@ -112,6 +104,11 @@
 								<!-- <artifactId>maven-aether-provider</artifactId> -->
 								<!-- <version>3.1.1</version> -->
 								<!-- </artifact> -->
+								<!-- <artifact> -->
+								<!-- <groupId>org.apache.maven</groupId> -->
+								<!-- <artifactId>maven-core</artifactId> -->
+								<!-- <version>3.1.1</version> -->
+								<!-- </artifact> -->
 								<artifact>
 									<groupId>org.apache.maven</groupId>
 									<artifactId>maven-artifact</artifactId>
@@ -124,11 +121,6 @@
 								<!-- </artifact> -->
 								<!-- <artifact> -->
 								<!-- <groupId>org.apache.maven</groupId> -->
-								<!-- <artifactId>maven-core</artifactId> -->
-								<!-- <version>3.1.1</version> -->
-								<!-- </artifact> -->
-								<!-- <artifact> -->
-								<!-- <groupId>org.apache.maven</groupId> -->
 								<!-- <artifactId>maven-embedder</artifactId> -->
 								<!-- <version>3.1.1</version> -->
 								<!-- </artifact> -->
@@ -137,11 +129,6 @@
 									<artifactId>maven-model</artifactId>
 									<version>3.1.1</version>
 								</artifact>
-								<!-- <artifact> -->
-								<!-- <groupId>org.apache.maven</groupId> -->
-								<!-- <artifactId>maven-model-builder</artifactId> -->
-								<!-- <version>3.1.1</version> -->
-								<!-- </artifact> -->
 								<!-- <artifact> -->
 								<!-- <groupId>org.apache.maven</groupId> -->
 								<!-- <artifactId>maven-plugin-api</artifactId> -->
