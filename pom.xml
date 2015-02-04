@@ -5,7 +5,7 @@
 	<parent>
 		<groupId>org.sourcepit</groupId>
 		<artifactId>srcpit-parent</artifactId>
-		<version>20-SNAPSHOT</version>
+		<version>21-SNAPSHOT</version>
 	</parent>
 
 	<artifactId>osgified-artifacts</artifactId>
@@ -48,7 +48,7 @@
 			<plugin>
 				<groupId>org.sourcepit.osgifier</groupId>
 				<artifactId>osgifier-maven-plugin</artifactId>
-				<version>0.22.0</version>
+				<version>0.23.0</version>
 				<executions>
 					<execution>
 						<goals>
@@ -92,7 +92,7 @@
 								<artifact>
 									<groupId>org.aspectj</groupId>
 									<artifactId>aspectjrt</artifactId>
-									<version>1.8.4</version>
+									<version>${aspectj.version}</version>
 								</artifact>
 								<artifact>
 									<groupId>org.codehaus.plexus</groupId>
